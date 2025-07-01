@@ -1,17 +1,25 @@
-```csharp
-using System;
-
 class Program
 {
     static void Main()
     {
-        Console.Write("What is your first name? ");
-        string firstName = Console.ReadLine();
-        Console.Write("What is your last name? ");
-        string lastName = Console.ReadLine();
+        bool continueInput = true;
 
-        // Output in "last-name, first-name last-name" format
-        Console.WriteLine($"Your name is {lastName}, {firstName} {lastName}.");
+        while (continueInput)
+        {
+            Console.Write("What is your first name? ");
+            string firstName = Console.ReadLine();
+            Console.Write("What is your last name? ");
+            string lastName = Console.ReadLine();
+
+            Console.WriteLine($"Your name is {lastName}, {firstName} {lastName}.");
+
+            Console.Write("Would you like to enter another name? (yes/no): ");
+            string response = Console.ReadLine().Trim().ToLower();
+            if (response != "yes" && response != "y")
+            {
+                continueInput = false;
+            }
+            Console.WriteLine();
+        }
     }
 }
-```
